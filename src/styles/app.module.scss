@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+.app {
+  width: 100vw;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 90vh;
+    background: url("../static/images/branch.jpg") repeat center center fixed;
+  }
+}

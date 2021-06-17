@@ -1,0 +1,12 @@
+.field {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .input {
+      min-width: 72%;
+      border: 1px solid black;
+      border-radius: 2px;
+      padding: 5px;
+      max-height: 25px;
+    }
+  }

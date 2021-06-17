@@ -1,0 +1,21 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  .title {
+    font-size: 40px;
+    margin: 15px;
+  }
+  .filter {
+    font-size: large;
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    margin: 0 0 0 15px;
+    &:hover {
+        cursor: pointer;
+    }
+  }
+}
