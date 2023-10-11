@@ -3,7 +3,6 @@ import firebase from "firebase";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
 import Message from "../in-and-out-of-app/Message";
 import Button from "../in-and-out-of-app/Button";
 import WrapperLink from "../in-and-out-of-app/Link";
@@ -57,9 +56,6 @@ const LoginForm = (props) => {
             console.log(error);
             setMessages((messages) => [...messages, error.message]);
           }
-          // else if (messages.includes(error.message)) {
-          //     setMessages(messages => messages.filter((message) => message !== error.message))
-          // }
         });
     }
   };

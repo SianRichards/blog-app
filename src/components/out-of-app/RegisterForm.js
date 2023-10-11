@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
 import FormField from "../in-and-out-of-app/FormField";
 import styles from "../../styles/login.module.scss";
 import Button from "../in-and-out-of-app/Button";
