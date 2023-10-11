@@ -15,7 +15,7 @@ const Dashboard = () => {
     orderDatabaseValuesByChild("posts", "shareOnDashboard", true).on(
       "value",
       (snapshot) => {
-        if (snapshot.val()) {
+        if (snapshot.exists()) {
           const publicPostInfoArray = Object.values(snapshot.val()).reverse();
           // reverse order to have newest posts first
 
@@ -38,8 +38,6 @@ const Dashboard = () => {
       setPublicPosts(originalPostArrayReversed.current);
     }
   };
-
-  console.log(publicPosts);
 
   return (
     <div className={styles.dashboard}>
