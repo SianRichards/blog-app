@@ -61,7 +61,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// wrap instead of compose?
 export default compose(
   withRouter,
   connect(mapStateToProps, { setUserAction })
