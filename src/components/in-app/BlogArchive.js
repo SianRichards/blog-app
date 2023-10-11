@@ -13,70 +13,82 @@ import {
   updateDatabaseValue,
 } from "../firebase/database/helperFunctions";
 
+//profile page
+
 const BlogArchive = (props) => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [showMessageIds, setMessageIds] = useState([]);
 
   useEffect(() => {
-    if (props.user && props.user !== {}) {
-      let authUID = props.user.uid;
-      orderDatabaseValuesByChild("posts", "userUID", authUID).on(
-        "value",
-        (snapshot) => {
-          // firebase returns an object of objects (the blog entries)
-          // so the code below turns it into an array of objects
-          if (snapshot.val()) {
-            let arrayedBlogEntries = Object.keys(snapshot.val()).map(
-              (entry) => snapshot.val()[entry]
-            );
-            // obtains the id for each post
-            let blogPostIds = Object.keys(snapshot.val());
-            // adds the id for each post to the post object
-            arrayedBlogEntries.forEach((entry, i) => {
-              entry.id = blogPostIds[i];
-            });
-            // reverses the order of the array of the posts
-            // to display in reverse chronological order
-            let reverseArrayedBlogEntries = arrayedBlogEntries.reverse();
-            setBlogPosts(reverseArrayedBlogEntries);
-          } else setBlogPosts([]);
-        }
-      );
+    if (!props.user) {
+      return;
     }
-  }, []);
+    const authUID = props.user.uid;
+    const postsRef = orderDatabaseValuesByChild("posts", "userUID", authUID);
 
-  // component updates (receives delete blog post confirmation)
+    const postsListener = postsRef.on("value", (snapshot) => {
+      if (!snapshot.exists()) {
+        setBlogPosts([]);
+        return;
+      }
+      // if there are posts for the authenticated user
+      const blogEntries = snapshot.val();
+      // blogEntries: { postOneId: { postOneContent }, postTwoId: { postTwoContent } }
+      const blogPostIds = Object.keys(blogEntries);
+      // blogPostIds: [postOneId, postTwoId]
+      const arrayedBlogEntries = blogPostIds.map((entryId) => ({
+        ...blogEntries[entryId],
+        id: entryId,
+      }));
+      // arrayedBlogEntries: [{ postOneId, postOneContent... }, { postTwoId, postTwoContent }]
+
+      setBlogPosts(arrayedBlogEntries.reverse());
+    });
+    return () => {
+      postsRef.off("value", postsListener);
+    };
+  }, [props.user]);
+
   useEffect(() => {
-    if (props.deleteBlogPost) {
-      removeDatabaseValue("posts/" + props.modalInfo.payload.id);
-      props.modalInfoAction({});
-      props.cancelDeleteBlogPostAction();
+    const {
+      deleteBlogPost,
+      modalInfo,
+      modalInfoAction,
+      cancelDeleteBlogPostAction,
+    } = props;
+
+    if (deleteBlogPost) {
+      removeDatabaseValue(`posts/${modalInfo.payload.id}`);
+      modalInfoAction({});
+      cancelDeleteBlogPostAction();
     }
   }, [props.deleteBlogPost]);
 
-  // helper functions
   const deleteBlogPost = (blogPostToDelete) => {
+    const { modalInfoAction } = props;
     let modalInfo = {
       yesAction: "deleteBlogPostAction",
       noAction: "cancelDeleteBlogPostAction",
       payload: blogPostToDelete,
       modalMessage: "Are you sure you want to delete this post?",
     };
-    props.modalInfoAction(modalInfo);
+    modalInfoAction(modalInfo);
   };
 
   const editBlogPost = (blogPost) => {
-    props.sendBlogPostIdAction(blogPost.id);
+    const { sendBlogPostIdAction } = props;
+    sendBlogPostIdAction(blogPost.id);
   };
 
   const sharePostOnDashboard = (blogPost) => {
-    if (!blogPost.shareOnDashboard) {
-      updateDatabaseValue("posts/" + blogPost.id, { shareOnDashboard: true });
-      setMessageIds((showMessageIds) => [...showMessageIds, blogPost.id]);
-    } else if (blogPost.shareOnDashboard) {
-      updateDatabaseValue("posts/" + blogPost.id, { shareOnDashboard: false });
+    const { shareOnDashboard, id } = blogPost;
+    if (!shareOnDashboard) {
+      updateDatabaseValue("posts/" + id, { shareOnDashboard: true });
+      setMessageIds((showMessageIds) => [...showMessageIds, id]);
+    } else if (shareOnDashboard) {
+      updateDatabaseValue("posts/" + id, { shareOnDashboard: false });
       setMessageIds((showMessageIds) =>
-        showMessageIds.filter((messageId) => messageId !== blogPost.id)
+        showMessageIds.filter((messageId) => messageId !== id)
       );
     }
   };
