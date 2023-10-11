@@ -1,9 +1,7 @@
 import React from "react";
 import firebase from "firebase";
 import { connect } from "react-redux";
-
 import { userIsLoggedOut } from "../../redux/actions";
-import styles from "../../styles/styles.module.scss";
 
 class SignOutButton extends React.Component {
   state = { errorMessages: [] };

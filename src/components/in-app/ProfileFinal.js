@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-
 import styles from "../../styles/profile.module.scss";
 import {
   editProfileAction,

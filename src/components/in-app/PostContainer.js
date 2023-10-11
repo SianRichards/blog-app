@@ -1,5 +1,4 @@
 import React from "react";
-
 import Post from "./Post";
 import styles from "../../styles/post.module.scss";
 

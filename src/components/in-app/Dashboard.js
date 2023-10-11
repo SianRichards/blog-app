@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
-
 import { orderDatabaseValuesByChild } from "../firebase/database/helperFunctions";
 import PostContainer from "./PostContainer";
 import styles from "../../styles/dashboard.module.scss";

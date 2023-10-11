@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import LoginForm from "../out-of-app/LoginForm";
 import RegisterForm from "../out-of-app/RegisterForm";
 import Header from "./Header";
-import Counter from "../in-app/Counter";
 import Dashboard from "../in-app/Dashboard";
 import Profile from "../in-app/Profile";
 import { firebaseAuth } from "../../index";

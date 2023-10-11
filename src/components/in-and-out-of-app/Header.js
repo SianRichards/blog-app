@@ -1,5 +1,4 @@
 import React from "react";
-
 import NavBar from "../in-app/NavBar";
 import styles from "../../styles/header.module.scss";
 

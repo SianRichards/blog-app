@@ -1,5 +1,4 @@
 import React from "react";
-
 import styles from "../../styles/message.module.scss";
 
 const Message = (props) => {

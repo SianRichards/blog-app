@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
 import SignOutButton from "../in-app/SignOutButton";
 import styles from "../../styles/navbar.module.scss";
 

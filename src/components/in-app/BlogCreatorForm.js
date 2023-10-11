@@ -4,7 +4,6 @@ import moment from "moment";
 import { Transition } from "semantic-ui-react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
 import {
   sendBlogPostIdAction,
   modalInfoAction,
@@ -16,7 +15,6 @@ import {
   updateDatabaseValue,
   databaseRef,
 } from "../firebase/database/helperFunctions";
-import Button from "../in-and-out-of-app/Button";
 import styles from "../../styles/login.module.scss";
 
 class BlogCreatorForm extends React.Component {

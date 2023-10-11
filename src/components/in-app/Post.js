@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import styles from "../../styles/post.module.scss";
 import { updateDatabaseValue } from "../firebase/database/helperFunctions";
 
