@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import styles from '../../styles/message.module.scss';
+import styles from "../../styles/message.module.scss";
 
 const Message = (props) => {
+  const { message } = props;
 
-    const { message, error, positive } = props;
-
-    return (
-        <div key={message} className={styles.message}
-        >{message}</div>
-    )
+  return (
+    <div key={message} className={styles.message}>
+      {message}
+    </div>
+  );
 };
 
 export default Message;
