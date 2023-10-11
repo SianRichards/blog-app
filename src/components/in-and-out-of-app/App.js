@@ -2,12 +2,11 @@ import React, { useEffect } from "react";
 import { compose } from "redux";
 import { Route, withRouter, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-
 import LoginForm from "../out-of-app/LoginForm";
 import RegisterForm from "../out-of-app/RegisterForm";
 import Header from "./Header";
-import Dashboard from "../in-app/Dashboard";
-import Profile from "../in-app/Profile";
+import Dashboard from "../in-app/dashboard/Dashboard";
+import Profile from "../in-app/profile/Profile";
 import { firebaseAuth } from "../../index";
 import { setUserAction } from "../../redux/actions";
 import PrivateRoute from "../routing/PrivateRoute";
