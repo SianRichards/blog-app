@@ -16,8 +16,6 @@ const Post = (props) => {
       .catch((error) => console.log(error));
   };
 
-  console.log(blogPost.id);
-
   return (
     <div key={blogPost.id} className={styles.post}>
       <div className="content">
