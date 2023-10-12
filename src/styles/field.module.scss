@@ -2,8 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    label {
+      width: 90px;
+      word-wrap: break-word;
+    }
     .input {
-      min-width: 72%;
+      width: 300px;
       border: 1px solid black;
       border-radius: 2px;
       padding: 5px;
