@@ -1,20 +1,33 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  .editProfileOption {
+    margin: 0 0 10px 10px;
+    cursor: pointer;
+  }
+  h1,
+  h2 {
+    color: white;
+    background-color: #3a7893;
+    width: 180px;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+    border: 1px black solid;
+    
+  }
   .image {
     border-radius: 50%;
-    max-width: 100px;
+    margin-left: 15px;
+    height: 150px;
   }
   .description {
-      background-color: rgba(255, 255, 255, 0.856);
-      border: 1px solid black;
-      border-radius: 5px;
-      padding: 15px;
-      width: 700px;
-      align-self: center;
-  }
-  .pointer {
-      cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.856);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    width: 700px;
+    align-self: center;
   }
 }
