@@ -45,19 +45,24 @@ const ProfileFinal = (props) => {
   return (
     <div className={styles.container}>
       <h1>Profile Page</h1>
-      <i
+      <div
+        className={styles.editProfileOption}
         onClick={() => {
           props.showProfileEditModeAction();
         }}
-        className={`right floated edit icon ${styles.pointer}`}
-      ></i>
+      >
+        <i className="right floated edit icon"></i>
+        <span>Edit profile</span>
+      </div>
       <div>
         <img className={styles.image} src={imageURL} />
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <h2 className={styles.username}>Username</h2>
+          <h2>Username</h2>
           <p className={styles.description}>
             {" "}
-            {profileText ? profileText : "Complete your bio here..."}
+            {profileText
+              ? profileText
+              : "Click on the edit symbol above to add detail to your profile"}
           </p>
         </div>
       </div>
