@@ -13,8 +13,6 @@ import {
   updateDatabaseValue,
 } from "../../firebase/database/helperFunctions";
 
-//profile page
-
 const BlogArchive = (props) => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [showMessageIds, setMessageIds] = useState([]);
