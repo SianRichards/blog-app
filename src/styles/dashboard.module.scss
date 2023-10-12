@@ -18,7 +18,12 @@
     display: flex;
     justify-content: flex-start;
     align-self: flex-start;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 20px;
+    padding:5px;
+    color: white;
+    background-color: #3a7893;
+    border: 1px black solid;
+    font-weight: bold;
     &:hover {
       cursor: pointer;
     }
