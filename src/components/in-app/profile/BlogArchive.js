@@ -93,7 +93,7 @@ const BlogArchive = (props) => {
 
   return (
     <div>
-      <div>Blog Posts</div>
+      <h2 className="ui dividing header">Blog Posts</h2>
       <div className={styles.postsContainer}>
         {blogPosts.map((blogPost) => {
           return (
