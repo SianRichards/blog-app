@@ -192,7 +192,7 @@ class BlogCreatorForm extends React.Component {
       <div>
         <div>
           <form className={styles.form} onSubmit={this.validate}>
-            <h4 className="ui dividing header">Blog Creator Form</h4>
+            <h2 className="ui dividing header">Blog Creator Form</h2>
             {this.renderInputFields()}
             <div style={{ margin: "15px" }}>
               {this.props.blogPostId === "" ? (
