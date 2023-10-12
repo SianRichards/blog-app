@@ -7,8 +7,8 @@ const PostContainer = (props) => {
 
   return (
     <div className={styles.postsContainer}>
-      {publicPosts.map((blogPost) => {
-        return <Post key={blogPost.id} blogPost={blogPost} />;
+      {publicPosts.map((blogPost, index) => {
+        return <Post key={index} blogPost={blogPost} />;
       })}
     </div>
   );
