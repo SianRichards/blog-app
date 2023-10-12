@@ -81,10 +81,10 @@ const BlogArchive = (props) => {
   const sharePostOnDashboard = (blogPost) => {
     const { shareOnDashboard, id } = blogPost;
     if (!shareOnDashboard) {
-      updateDatabaseValue("posts/" + id, { shareOnDashboard: true });
+      updateDatabaseValue(`posts/${id}`, { shareOnDashboard: true });
       setMessageIds((showMessageIds) => [...showMessageIds, id]);
     } else if (shareOnDashboard) {
-      updateDatabaseValue("posts/" + id, { shareOnDashboard: false });
+      updateDatabaseValue(`posts/${id}`, { shareOnDashboard: false });
       setMessageIds((showMessageIds) =>
         showMessageIds.filter((messageId) => messageId !== id)
       );
